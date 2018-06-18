@@ -37,6 +37,6 @@ spec:
           readOnly: true # this will be the case perforce in K8s >=1.10
         args:
         # replace (at least) the following URL
-        - '--git-url=git@github.com:weaveworks/flux-helm-test.git'
+        - '--git-url=git@github.com:jkmart/flux-helm-test.git'
         - '--git-branch=master'
         - '--git-charts-path=charts'
