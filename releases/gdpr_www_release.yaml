@@ -10,5 +10,8 @@
     chartGitPath: gdpr-www
     releaseName: gdpr-www
     values:
-      image: intraedge/gdpr-www:d0a8f838789705f5cfa7317f3d8acd6c84702126
-      imagePullPolicy: IfNotPresent
+      image:
+        registry: intraedge
+        repository: gdpr-www
+        tag: d0a8f838789705f5cfa7317f3d8acd6c84702126
+        pullPolicy: Always
