@@ -3,7 +3,7 @@
   kind: FluxHelmRelease
   metadata:
     name: mariadb
-    namespace: test
+    namespace: default
     labels:
       chart: mariadb
   spec:
