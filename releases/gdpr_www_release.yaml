@@ -1,0 +1,14 @@
+---
+  apiVersion: helm.integrations.flux.weave.works/v1alpha2
+  kind: FluxHelmRelease
+  metadata:
+    name: gdpr-www
+    namespace: default
+    labels:
+      chart: gdpr-www
+  spec:
+    chartGitPath: gdpr-www
+    releaseName: gdpr-www
+    values:
+      image: intraedge/gdpr-www:d0a8f838789705f5cfa7317f3d8acd6c84702126
+      imagePullPolicy: IfNotPresent
