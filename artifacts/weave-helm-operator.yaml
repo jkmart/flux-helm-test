@@ -38,5 +38,5 @@ spec:
         args:
         # replace (at least) the following URL
         - '--git-url=git@github.com:jkmart/flux-helm-test.git'
-        - '--git-branch=master'
+        - '--git-branch=playground'
         - '--git-charts-path=charts'
