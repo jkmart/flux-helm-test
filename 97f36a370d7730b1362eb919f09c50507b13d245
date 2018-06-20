@@ -1,0 +1,1 @@
+{"jobID":"9515fae9-b87c-9330-5491-c01cf7365474","spec":{"type":"policy","cause":{"Message":"","User":"jkmart+weaveworks \u003cjkmart+weaveworks@gmail.com\u003e"},"spec":{"default:deployment/gdpr-www":{"add":null,"remove":{"automated":"true"}}}},"result":null}
