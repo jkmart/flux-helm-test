@@ -49,7 +49,7 @@ spec:
       - name: 'docker-cfg'
       containers:
       - name: gdpr-www
-        image: "intraedge/gdpr-www:development"
+        image: "intraedge/gdpr-www:development-8ca6744724f786beaff1734d76d27584cd188389"
         imagePullPolicy: Always
         ports:
         - name: http
