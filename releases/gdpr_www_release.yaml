@@ -1,17 +1,63 @@
+# Source: gdpr-www/templates/service.yaml
+apiVersion: v1
+kind: Service
+metadata:
+  name: gdpr-www
+  labels:
+    app: gdpr-www
+    chart: gdpr-www-0.1.0
+    release: gdpr-www
+    heritage: Tiller
+spec:
+  type: LoadBalancer
+  ports:
+    - port: 80
+      targetPort: http
+      protocol: TCP
+      name: http
+  selector:
+    app: gdpr-www
+    release: gdpr-www
 ---
-  apiVersion: helm.integrations.flux.weave.works/v1alpha2
-  kind: FluxHelmRelease
-  metadata:
-    name: gdpr-www
-    namespace: default
-    labels:
-      chart: gdpr-www
-  spec:
-    chartGitPath: gdpr-www
-    releaseName: gdpr-www
-    values:
-      image:
-        registry: intraedge
-        repository: gdpr-www
-        tag: d0a8f838789705f5cfa7317f3d8acd6c84702126
-        pullPolicy: Always
+# Source: gdpr-www/templates/deployment.yaml
+apiVersion: apps/v1beta2
+kind: Deployment
+metadata:
+  name: gdpr-www
+  labels:
+    app: gdpr-www
+    chart: gdpr-www-0.1.0
+    release: gdpr-www
+    heritage: Tiller
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: gdpr-www
+      release: gdpr-www
+  template:
+    metadata:
+      labels:
+        app: gdpr-www
+        release: gdpr-www
+    spec:
+      imagePullSecrets:
+        - name: 'docker-cfg'
+      containers:
+        - name: gdpr-www
+          image: "intraedge/gdpr-www:development"
+          imagePullPolicy: Always
+          ports:
+            - name: http
+              containerPort: 80
+              protocol: TCP
+          livenessProbe:
+            httpGet:
+              path: /en
+              port: http
+          readinessProbe:
+            httpGet:
+              path: /en
+              port: http
+          resources:
+            {}
