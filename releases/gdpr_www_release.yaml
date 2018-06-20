@@ -32,6 +32,7 @@ metadata:
     heritage: Tiller
   annotations:
     flux.weave.works/tag.gdpr-www: glob:development-*
+    flux.weave.works/automated: 'true'
 spec:
   replicas: 2
   selector:
